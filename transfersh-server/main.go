@@ -169,7 +169,7 @@ func main() {
 
 	s := &http.Server{
 		Addr:    fmt.Sprintf(":%s", *port),
-		Handler: handlers.PanicHandler(LoveHandler(RedirectHandler(handlers.LogHandler(r, handlers.NewLogOptions(log.Printf, "_default_")))), nil),
+		Handler: handlers.PanicHandler(LoveHandler(handlers.LogHandler(r, handlers.NewLogOptions(log.Printf, "_default_"))), nil),
 	}
 
 	log.Panic(s.ListenAndServe())
